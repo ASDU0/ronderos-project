@@ -28,7 +28,7 @@ export default function Map() {
         map, // el mapa en el que se mostrar el marcador
         title: 'Mi Marcador',
         icon: {
-          url: '/assets/images/',
+          url: '/assets/images/brujijeros.png',
           scaledSize: new google.maps.Size(40, 40),
         },
       });
