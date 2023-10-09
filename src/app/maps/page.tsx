@@ -115,32 +115,47 @@ export default function Map() {
 
       const markers = citiesCoors.map(
         (city) => {
-          const marker = new google.maps.Marker({
-            position: city.position,
-            map,
-            title: city.city,
-            icon: {
-              url: `/assets/images/${city.type}.png`,
-              scaledSize: new google.maps.Size(30, 30),
-              fillColor: 'red',
-            },
-          });
-
-          // Crear un contenedor para la etiqueta
-          const label = document.createElement('div');
-          label.className = 'marker-label';
-          label.textContent = `${city.type}`.toUpperCase();
-
-          // Vincular la etiqueta al marcador
-          const infoWindow = new google.maps.InfoWindow();
-          infoWindow.setContent(label);
-          infoWindow.open(map, marker);
+          const marker = createMarker(city, map);
+          // Crear un contenedor para la etiqueta del marcador
+          labelForMarker(city, map, marker);
         }
-      )
-    })
+      );
+    });
   }, [])
 
   return <div
     ref={mapRef} style={containerStyle}
   ></div>
 }
+
+function labelForMarker(
+  city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  map: google.maps.Map,
+  marker: google.maps.Marker
+) {
+  const label = document.createElement('div');
+  label.className = 'marker-label';
+  label.textContent = `${city.type}`.toUpperCase();
+
+  // Vincular la etiqueta al marcador
+  const infoWindow = new google.maps.InfoWindow();
+  infoWindow.setContent(label);
+  infoWindow.open(map, marker);
+}
+
+function createMarker(
+  city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  map: google.maps.Map
+) {
+  return new google.maps.Marker({
+    position: city.position,
+    map,
+    title: city.city,
+    icon: {
+      url: `/assets/images/${city.type}.png`,
+      scaledSize: new google.maps.Size(30, 30),
+      fillColor: 'red',
+    },
+  });
+}
+
