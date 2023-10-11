@@ -1,4 +1,9 @@
-import './globals.css'
+import './css/bootstrap-responsive.css'
+import './css/bootstrap-responsive.min.css'
+import './css/bootstrap.css'
+import './css/bootstrap.min.css'
+ // import './css/style.css'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
