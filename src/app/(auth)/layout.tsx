@@ -1,8 +1,3 @@
-import '../styles/bootstrap-responsive.css';
-import '../styles/bootstrap-responsive.min.css';
-import '../styles/bootstrap.css';
-import '../styles/bootstrap.min.css';
-
 export default function Layout({
   children,
 }: {
