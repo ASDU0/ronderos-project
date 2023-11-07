@@ -1,8 +1,9 @@
+import Image from 'next/image'
 import React from 'react'
 
 const crimenTypes = [
-  'asalto_mano_armado',
-  'brujijero',
+  'mano_armada',
+  'brujijeros',
   'carterista',
   'cogoteo',
   'falso_taxista',
@@ -15,18 +16,16 @@ const crimenTypes = [
 
 const Legend = () => {
   return (
-    <div>
-        <p>Tipo de crimen</p>
-        <div style={{ display: 'flex', gap: 10 }}>
-          {
-            crimenTypes.map((image, index) => (
-              <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', maxWidth: 100 }}>
-                <img src={`assets/images/${image}.png`} alt={image} width={40} />
-                <label style={{ textAlign: 'center' }} htmlFor="nose">{image.replace(/_/g, ' ').toUpperCase()}</label>
-              </div>
-            ))
-          }
-        </div>
+    <div className="flex gap-1 flex-wrap items-center"> 
+        <p>Tipo de crimen:</p>
+        {
+          crimenTypes.map((image, index) => (
+            <div key={index} className="flex flex-col items-center m-4">
+              <Image src={`/assets/images/${image}.png`} alt={image} width={25} height={25}/>
+              <label className="mt-2 text-sm" htmlFor="nose">{image.replace(/_/g, ' ').toUpperCase()}</label>
+            </div>
+          ))
+        }
     </div>
   )
 }

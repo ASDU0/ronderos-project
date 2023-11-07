@@ -7,8 +7,15 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <Legend />
-      <Map />
+      <div className="flex">
+        <div className="w-1/4">
+          Statistics sidebar
+        </div>
+        <div className="w-3/4">
+          <Legend />
+          <Map />
+        </div>
+      </div>
     </div>
   )
 }
