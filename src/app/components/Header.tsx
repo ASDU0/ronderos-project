@@ -1,11 +1,10 @@
 
-import styles from '../styles/registroCrimen.module.css';
 
 function Header() {
   return (
 
-    <header className={styles.header}>
-      <h1>DATOS DEL CRIMEN</h1>
+    <header>
+      <h1 className="text-2xl mb-4 text-red-600">DATOS DEL CRIMEN</h1>
     </header>
   );
 }
