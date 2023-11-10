@@ -6,7 +6,6 @@ export default function Page() {
 
   return (
     <div>
-      <Navbar />
       <div className="flex">
         <div className="w-1/4">
           Statistics sidebar
