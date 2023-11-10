@@ -20,7 +20,7 @@ const citiesCoors = [
       "lat": -12.046374,
       "lng": -77.042793
     },
-    "type": "brujijero",
+    "type": "brujijeros",
   },
   {
     "city": "Arequipa",
@@ -28,7 +28,7 @@ const citiesCoors = [
       "lat": -16.409047,
       "lng": -71.537451
     },
-    "type": "asalto_mano_armado",
+    "type": "mano_armada",
   },
   {
     "city": "Cusco",
@@ -36,7 +36,7 @@ const citiesCoors = [
       "lat": -13.522235,
       "lng": -71.967462
     },
-    "type": "asalto_mano_armado",
+    "type": "mano_armada",
   },
   {
     "city": "Trujillo",
