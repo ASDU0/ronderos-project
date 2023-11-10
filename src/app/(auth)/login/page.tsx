@@ -13,7 +13,7 @@ export default function LoginForm() {
     // Puedes acceder a los valores de email, password y rememberMe para enviar la solicitud.
   };
 
-  const LoginComponentButton=({provider,icon})=>{
+  const LoginComponentButton=({provider,icon,color})=>{
     const [isProviderLoading, setProviderLoading] = useState(false)
     const { data: session } = useSession()
 
@@ -22,7 +22,6 @@ export default function LoginForm() {
         console.log(session)
         setProviderLoading(true);
         await signIn(provider, { redirect: true, callbackUrl: 'http://localhost:3000' })
-
       } catch (error) {
         console.error(error);
       }
@@ -32,7 +31,7 @@ export default function LoginForm() {
     }
     return (
         <>
-          <button onClick={handleProviderLogin} className="flex gap-2 justify-center bg-blue-800 p-2 w-full text-white font-bold">
+          <button onClick={handleProviderLogin} className={`flex gap-2 rounded mt-2 justify-center ${color} p-2 w-full text-white font-bold`}>
             <img src={icon} alt="" className="h-6" />
             {isProviderLoading ? <span className="animate-pulse">Loading...</span> : `Login with ${provider}`
             }                                    </button>
@@ -41,13 +40,13 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-900">
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-900">
       <form
         onSubmit={handleFormSubmit}
-        className="bg-gray-800 p-8 rounded shadow-md text-gray-300"
+        className="bg-gray-800 space-y-4 p-8 rounded shadow-md text-gray-300"
       >
-        <h2 className="text-2xl mb-4 text-red-600">Inicio de Sesión</h2>
-        <div className="mb-4">
+        <h2 className="text-2xl  text-red-600">Inicio de Sesión</h2>
+        <div className="">
           <label className="block mb-1">Email:</label>
           <input
             type="text"
@@ -56,7 +55,7 @@ export default function LoginForm() {
             className="w-full p-2 rounded border-gray-600 bg-gray-700"
           />
         </div>
-        <div className="mb-4">
+        <div className="">
           <label className="block mb-1">Contraseña:</label>
           <input
             type="password"
@@ -65,7 +64,7 @@ export default function LoginForm() {
             className="w-full p-2 rounded border-gray-600 bg-gray-700"
           />
         </div>
-        <div className="mb-4">
+        <div className="">
           <label className="block mb-1">
             <input
               type="checkbox"
@@ -85,12 +84,11 @@ export default function LoginForm() {
         </button>
         <div className="flex gap-3">
           <span className="bg-gray-300 w-full h-[2px] mt-2"></span>
-          <span className="text-gray-400 text-sm">OR</span>
+          <span className="text-gray-400 text-sm ">OR</span>
           <span className="bg-gray-300 w-full h-[2px] mt-2"></span>
         </div>
-
-        <LoginComponentButton provider={'facebook'} icon={'facebook.svg'}/>
-
+        <LoginComponentButton provider={'google'} icon={'google.svg'} color={"bg-blue-800"}/>
+        <LoginComponentButton provider={'facebook'} icon={'facebook.svg'} color={"bg-blue-800"}/>
       </form>
     </div>
   );

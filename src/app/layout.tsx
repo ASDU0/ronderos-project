@@ -1,4 +1,4 @@
-import '@/app/styles/output.css';
+import '@/app/styles/input.css';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthProvider from "@/app/components/auth/AuthProvider";
