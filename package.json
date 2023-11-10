@@ -12,6 +12,7 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.2",
     "next": "13.5.4",
+    "next-auth": "^4.24.4",
     "react": "^18",
     "react-dom": "^18"
   },

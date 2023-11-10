@@ -1,9 +1,11 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
-    const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const toggleMenu = () =>{
     setIsVisible(!isVisible);
   };
@@ -12,9 +14,9 @@ const Navbar = () => {
     <div>
       <nav className="flex items-center justify-between flex-wrap bg-stone-50 p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <a href="https://rondero.com" target="_blank" rel="noopener noreferrer">
+          <Link href="/ciudad" >
             <Image src="/LogoFinal.png" alt="RONDERO" width={200} height={150} />
-          </a>
+          </Link>
           <span className="font-semibold text-xl tracking-tight">Rondero</span>
         </div>
         
@@ -26,7 +28,8 @@ const Navbar = () => {
 
       
         <div id='menu' className="w-full block flex-grow lg:flex lg:items-center lg:w-auto text-right">
-          {isVisible ? (<div className="base-mobile lg:flex-grow">
+          {isVisible ? (
+          <div className="base-mobile lg:flex-grow">
             <div className="relative inline-block ml-6 mt-2">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -36,33 +39,33 @@ const Navbar = () => {
                   </div>
                   <input type="text" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-3xl focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar Ciudad"/>
             </div>
-            <a href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            <Link href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Registrarse
-            </a>
-            <a href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Entrar
-            </a>
-            <a href="/nuevo-crimen" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="/nuevo-crimen" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Registrar Crimen
-            </a>
-            <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Blog
-            </a>
+            </Link>
           </div>): null}
 
           <div className="base-desktop hidden lg:block lg:flex-grow">
-            <a href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            <Link href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Registrarse
-            </a>
-            <a href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Entrar
-            </a>
-            <a href="/nuevo-crimen" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="/nuevo-crimen" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Registrar Crimen
-            </a>
-            <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            </Link>
+            <Link href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Blog
-            </a>
+            </Link>
             <div className="relative inline-block ml-6 mt-2">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -75,7 +78,6 @@ const Navbar = () => {
           </div>
         </div>
     </nav>
-
   </div>
   )
 }
