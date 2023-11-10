@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import {signIn, useSession} from "next-auth/react";
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,33 @@ export default function LoginForm() {
     // Aquí puedes manejar la lógica de envío del formulario, por ejemplo, iniciar sesión.
     // Puedes acceder a los valores de email, password y rememberMe para enviar la solicitud.
   };
+
+  const LoginComponentButton=({provider,icon})=>{
+    const [isProviderLoading, setProviderLoading] = useState(false)
+    const { data: session } = useSession()
+
+    const handleProviderLogin = async () => {
+      try {
+        console.log(session)
+        setProviderLoading(true);
+        await signIn(provider, { redirect: true, callbackUrl: 'http://localhost:3000' })
+
+      } catch (error) {
+        console.error(error);
+      }
+      finally {
+        setProviderLoading(false)
+      }
+    }
+    return (
+        <>
+          <button onClick={handleProviderLogin} className="flex gap-2 justify-center bg-blue-800 p-2 w-full text-white font-bold">
+            <img src={icon} alt="" className="h-6" />
+            {isProviderLoading ? <span className="animate-pulse">Loading...</span> : `Login with ${provider}`
+            }                                    </button>
+        </>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-900">
@@ -48,12 +76,21 @@ export default function LoginForm() {
             Mantenerme conectado
           </label>
         </div>
+
         <button
           type="submit"
           className="w-full p-2 bg-red-600 text-gray-200 rounded hover:bg-red-700"
         >
           Iniciar Sesión
         </button>
+        <div className="flex gap-3">
+          <span className="bg-gray-300 w-full h-[2px] mt-2"></span>
+          <span className="text-gray-400 text-sm">OR</span>
+          <span className="bg-gray-300 w-full h-[2px] mt-2"></span>
+        </div>
+
+        <LoginComponentButton provider={'facebook'} icon={'facebook.svg'}/>
+
       </form>
     </div>
   );

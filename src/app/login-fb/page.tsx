@@ -16,7 +16,10 @@ const loginFb = () => {
     return (
         <>
             Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
+            <button onClick={() =>  signIn(
+                'facebook',
+                // { callbackUrl: 'http://localhost:3000' }
+            )}>Sign in</button>
         </>
     )
 }
