@@ -74,3 +74,6 @@
     @apply bg-background text-foreground;
   }
 }
+.fill-white-asdu{
+  fill: #ffffff;
+}

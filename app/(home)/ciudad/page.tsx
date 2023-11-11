@@ -2,28 +2,36 @@
 
 import Legend from "@/components/Legend";
 import Map from "@/components/Maps";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import Sidebar from "@/components/sidebar/sidebar";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 
 export default function Page() {
   return (
     <div>
-      <div className="flex">
-        <div className="w-1/4 bg-red-500">
-          <div className="w-100 bg-red-500 h-32 flex flex-col lg:flex-row p-4">
-            <p className="text-3xl text-center text-gray-200">
-              Ubicacion
+      <div className="flex md:hidden">
+        <Sheet>
+          <SheetTrigger>
+            <p className="bg-red-500 text-gray-100 text-xl font-bold px-3 py-1 rounded-sm">
+              Abrir estadisticas
             </p>
-            <Input className={cn(
-              "bg-red-400"
-            )} />
-          </div>
+          </SheetTrigger>
+          <SheetContent side={"left"} className="m-0 p-0">
+            <Sidebar />
+          </SheetContent>
+        </Sheet>
+      </div>
+      <div className="flex">
+        <div className="hidden md:flex flex-col w-[280px]">
+          <Sidebar />
         </div>
-        <div className="w-3/4">
+        <div className="flex-1">
           <Legend />
           <Map />
         </div>
       </div>
+     
     </div>
   )
 }
