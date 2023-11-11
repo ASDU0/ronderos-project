@@ -1,7 +1,7 @@
 'use client';
 
-import Header from '../../components/Header';
-import Formulario from '../../components/Formulario';
+import Formulario from "@/components/Formulario";
+import Header from "@/components/Header";
 
 export default function registroCrimen() {
   return (

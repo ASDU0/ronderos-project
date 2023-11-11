@@ -1,6 +1,5 @@
-import Legend from "../../components/Legend";
-import Map from "../../components/Maps";
-import Navbar from "../../components/Navbar";
+import Legend from "@/components/Legend";
+import Map from "@/components/Maps";
 
 export default function Page() {
 
