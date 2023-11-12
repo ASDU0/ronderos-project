@@ -106,7 +106,7 @@ export default function Map() {
     });
 
     loader.importLibrary('maps').then(() => {
-      const map = new google.maps.Map(mapRef.current, {
+      const map = new google.maps.Map(mapRef.current!, {
         center,
         zoom: 8
       });
