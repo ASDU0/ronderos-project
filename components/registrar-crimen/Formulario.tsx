@@ -1,7 +1,10 @@
 "use client";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ListTypesCrime } from "@/utils/services/typeCrime-service";
+import axios from "axios";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 function Formulario() {
+    const [typesCrime, setTypesCrime] = useState([]);
     const [formData, setFormData] = useState({
         titulo: "",
         tipoRobo: "",
@@ -13,6 +16,7 @@ function Formulario() {
         denunciaPolicial: "",
         mayorDetalle: ""
     });
+
 
     const handleInput = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const fieldName = e.target.name;
@@ -47,15 +51,51 @@ function Formulario() {
         e.preventDefault();
         console.log("Datos del formulario:", formData);
     };
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://ronderos.onrender.com/api/type-crime');
+            const data = response.data;
+            console.log('data:  ',data);
+            
+    
+            // Actualiza el estado con los datos obtenidos
+            setTypesCrime(data);
+          } catch (error) {
+            console.error('Error al obtener los tipos de crimen:', error);
+          }
+        };
+    
+        // Llama a la función para obtener los tipos de crimen cuando el componente se monta
+        fetchData();
+      }, []);
+
+    /* useEffect(() => {
+        // Llamada a la función del servicio para obtener los tipos de crimen
+        const fetchTypesCrime = async () => {
+            try {
+                const typesCrime = await ListTypesCrime();
+                // Hacer algo con los datos obtenidos, por ejemplo, actualizar el estado
+                // o realizar cualquier acción necesaria con los tipos de crimen.
+                console.log("Tipos de crimen obtenidos:", typesCrime);
+            } catch (error) {
+                // Manejar errores, por ejemplo, mostrar un mensaje de error al usuario
+                console.error("Error al obtener los tipos de crimen:", error);
+            }
+        };
+
+        // Llama a la función para obtener los tipos de crimen cuando el componente se monta
+        fetchTypesCrime();
+    }, []); // El segundo argumento [] indica que este efecto solo se ejecuta una vez al montar el componente */
 
     return (
-        <div className="bg-gray-900 p-4">
+        <div className="bg-gray-300 py-4 px-12">
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={submitForm}>
                 <div>
                     <label className="text-fe4a49 font-bold text-bcbec0 text-lg block mb-2">Título:</label>
                     <input
                         type="text"
-                        className="w-full p-2 rounded border border-bcbec0 bg-gray-800 text-bcbec0"
+                        className="w-full p-2 rounded border border-bcbec0 bg-white-500 text-bcbec0"
                         name="titulo"
                         onChange={handleInput}
                         value={formData.titulo}
@@ -63,11 +103,11 @@ function Formulario() {
                         required
                     />
                 </div>
-                {/* Resto de tu formulario */}
+                
                 <div>
                     <label className="text-fe4a49 font-bold text-bcbec0 text-lg block mb-2">Fecha:</label>
                     <input
-                        className="w-full p-2 rounded border border-bcbec0 bg-gray-800 text-bcbec0"
+                        className="w-full p-2 rounded border border-bcbec0 bg-white-500 text-bcbec0"
                         type="date"
                         name="fecha"
                         onChange={handleInput}
@@ -81,7 +121,7 @@ function Formulario() {
                     <label className="text-fe4a49 font-bold text-bcbec0 text-lg block mb-2">Hora:</label>
                     <input
                         type="time"
-                        className="w-full p-2 rounded border border-bcbec0 bg-gray-800 text-bcbec0"
+                        className="w-full p-2 rounded border border-bcbec0 bg-white-500 text-bcbec0"
                         name="hora"
                         onChange={handleInput}
                         value={formData.hora}
@@ -95,7 +135,7 @@ function Formulario() {
                         Tipo:
                     </label>
                     <select
-                        className="w-full p-2 rounded border border-bcbec0 bg-gray-800 text-bcbec0"
+                        className="w-full p-2 rounded border border-bcbec0 bg-white-500 text-bcbec0"
                         name="tipoRobo"
                         onChange={handleInput}
                         value={formData.tipoRobo}
@@ -117,14 +157,13 @@ function Formulario() {
                     </select>
                 </div>
 
-                {/* ... Otros campos de tu formulario */}
                 <div>
                     <label className="text-fe4a49 font-bold text-bcbec0 text-lg block mb-2">
                         Prejuicio estimado (s/.):
                     </label>
                     <input
                         type="number"
-                        className="w-full p-2 rounded border border-bcbec0 bg-gray-800 text-bcbec0"
+                        className="w-full p-2 rounded border border-bcbec0 bg-white-500 text-bcbec0"
                         name="prejuicioEstimado"
                         onChange={handleInput}
                         value={formData.prejuicioEstimado}
@@ -357,7 +396,7 @@ function Formulario() {
             </form>
             <button
                 type="submit"
-                className="p-2 bg-red-600 text-gray-200 rounded hover:bg-red-700"
+                className="p-2 bg-red-600 text-gray-200 font-bold rounded hover:bg-red-700"
             >
                 Guardar
             </button>
