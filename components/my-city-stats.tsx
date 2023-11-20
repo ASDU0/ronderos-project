@@ -1,13 +1,13 @@
 
 import Image from 'next/image'
 import React from 'react'
-import CrimeLineChart from './charts/CrimelineChart'
-import BarChart from './charts/BarChart'
-import { PieCrimenChart } from './charts/PieCrimenChart'
-import { PiePercentageChart } from './charts/PiePercentageChart'
-import CrimeIndexChart from './charts/CrimeIndexChart'
+import { CrimeLineChart } from './charts/crimeline-chart'
+import { BarChart } from './charts/bar-chart'
+import { PieCrimeChart } from './charts/pie-crime-chart'
+import { PiePercentageChart } from './charts/pie-percentage-chart'
+import { CrimeIndexChart } from './charts/crime-index-chart'
 import Link from 'next/link'
-import { listaCrimenes } from './charts/utils'
+import { crimeList } from './charts/utils'
 
 const MyCityStats = ({
     cityName
@@ -68,16 +68,16 @@ const MyCityStats = ({
 
                 <div className="flex flex-row space-x-4 py-5">
                     <div className="flex-1 flex items-center justify-center">
-                        <CrimeLineChart listaCrimenes={listaCrimenes} />
+                        <CrimeLineChart crimeList={crimeList} />
                     </div>
                     <div className="flex-1 flex items-center justify-center">
-                        <BarChart listaCrimenes={listaCrimenes} />
+                        <BarChart crimeList={crimeList} />
                     </div>
                     <div className="flex-1 flex items-center justify-center">
-                        <PiePercentageChart listaCrimenes={listaCrimenes} />
+                        <PiePercentageChart crimeList={crimeList} />
                     </div>
                     <div className="flex-1 flex items-center justify-center">
-                        <PieCrimenChart listaCrimenes={listaCrimenes} />
+                        <PieCrimeChart crimeList={crimeList} />
                     </div>
                 </div>
             </div>

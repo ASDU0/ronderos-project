@@ -23,51 +23,51 @@ ChartJS.register(
     Legend
 );
 
-interface ConteoCrimenes {
-    [agno: string]: {
-        dia: number,
-        noche: number
+interface CrimeCount {
+    [year: string]: {
+        day: number,
+        night: number
     };
 }
 
-export default function CrimeLineChart({ listaCrimenes }) {
-    const options = createOptionsChart('Día VS Noche');
+export function CrimeLineChart({ crimeList }) {
+    const options = createOptionsChart('Día vs Noche');
 
-    const conteo: ConteoCrimenes = listaCrimenes.reduce((acumulador, crimen) => {
-        const { agno, temporada } = crimen;
+    const count: CrimeCount = crimeList.reduce((accumulator, crime) => {
+        const { year, season } = crime;
 
-        // inicializa contador para el año si aun no existe
-        if (!acumulador[agno]) {
-            acumulador[agno] = { dia: 0, noche: 0 };
+        // initializes counter for the year if it doesn't exist yet
+        if (!accumulator[year]) {
+            accumulator[year] = { day: 0, night: 0 };
         }
 
-        // incrementa el contador correspondiente a la temporada
-        if (temporada === 'dia') {
-            acumulador[agno].dia++;
+        // increments the counter for the season
+        if (season === 'day') {
+            accumulator[year].day++;
         } else {
-            acumulador[agno].noche++;
+            accumulator[year].night++;
         }
 
-        return acumulador;
+        return accumulator;
     }, {});
 
     const data = {
-        labels: Object.keys(conteo),
+        labels: Object.keys(count),
         datasets: [
             {
                 label: 'Día',
-                data: Object.keys(conteo).map((agno) => conteo[agno].dia),
+                data: Object.keys(count).map((year) => count[year].day),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
                 label: 'Noche',
-                data: Object.keys(conteo).map((agno) => conteo[agno].noche),
+                data: Object.keys(count).map((year) => count[year].night),
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ]
-    }    
+    }
 
     return <Line options={options} data={data} width={200} height={200} />;
 }

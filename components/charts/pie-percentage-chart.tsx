@@ -6,14 +6,14 @@ import { createOptionsChart } from './utils';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = (denunciasPorcentaje = 25) => {
-    const porcentajeRestante = 100 - denunciasPorcentaje;
+export const data = (reportPercentage = 25) => {
+    const remainingPercentage = 100 - reportPercentage;
 
     return {
-        labels: ['Denunciados', 'No Denunciados'],
+        labels: ['Reported', 'Not Reported'],
         datasets: [
             {
-                data: [denunciasPorcentaje, porcentajeRestante],
+                data: [reportPercentage, remainingPercentage],
                 backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(0, 0, 0, 0)'],
                 borderColor: ['rgba(255, 99, 132, 1)', 'rgba(0, 0, 0, 0)'],
                 borderWidth: 1,
@@ -22,19 +22,19 @@ export const data = (denunciasPorcentaje = 25) => {
     };
 };
 
-export function PiePercentageChart({ listaCrimenes }) {
-    const options = createOptionsChart('Porcentaje de Crímenes Denunciados');
+export function PiePercentageChart({ crimeList }) {
+    const options = createOptionsChart('Porcentaje de crímenes reportados');
 
-    const conteo = listaCrimenes.reduce((acumulador, crimen) => {
-        crimen.denunciado ? acumulador.denunciados++ : acumulador.noDenunciados++;
-        return acumulador;
-    }, { denunciados: 0, noDenunciados: 0 });
+    const count = crimeList.reduce((accumulator, crime) => {
+        crime.reported ? accumulator.reported++ : accumulator.notReported++;
+        return accumulator;
+    }, { reported: 0, notReported: 0 });
 
     const data = {
-        labels: ['Denunciados', 'No denunciados'],
+        labels: ['Reportado', 'No reportado'],
         datasets: [
             {
-                data: Object.values(conteo),
+                data: Object.values(count),
                 backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(0, 0, 0, 0)'],
                 borderColor: ['rgba(255, 99, 132, 1)', 'rgba(0, 0, 0, 0)'],
                 borderWidth: 1,

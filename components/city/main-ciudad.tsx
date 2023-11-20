@@ -1,5 +1,5 @@
-import Legend from "../Legend";
-import Map from "../Maps";
+import Legend from "../legend";
+import Map from "../maps";
 import Sidebar from "../sidebar/sidebar";
 
 const MainCiudad = () => {
