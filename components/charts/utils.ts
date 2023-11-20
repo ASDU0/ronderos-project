@@ -1,4 +1,10 @@
 
+
+function getRandomElement<T>(array: T[]): T {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+}
+
 export const createOptionsChart = (title: string, displayLegend: boolean = false) => {
     return {
         responsive: true,
@@ -14,7 +20,7 @@ export const createOptionsChart = (title: string, displayLegend: boolean = false
     };
 };
 
-type TipoCrimen =
+type CrimeType =
     | 'mano_armada'
     | 'brujijeros'
     | 'carterista'
@@ -26,23 +32,18 @@ type TipoCrimen =
     | 'raquetero'
     | 'secuestro';
 
-type Temporada = 'dia' | 'noche'
+type TimeOfDay = 'day' | 'night'
 
-interface Crimen {
-    agno: number,
-    tipo: TipoCrimen,
-    temporada: Temporada,
-    denunciado: boolean
+interface Crime {
+    year: number,
+    type: CrimeType,
+    time: TimeOfDay,
+    reported: boolean
 }
 
-function getRandomElement<T>(array: T[]): T {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
-}
+const years = [2023, 2022, 2021, 2020];
 
-const agnos = [2023, 2022, 2021, 2020];
-
-const tipos: TipoCrimen[] = [
+const types: CrimeType[] = [
     'mano_armada',
     'brujijeros',
     'carterista',
@@ -54,17 +55,19 @@ const tipos: TipoCrimen[] = [
     'raquetero',
     'secuestro',
 ];
-const temporadas: Temporada[] = ['dia', 'noche'];
 
-export const listaCrimenes: Crimen[] = [];
+const times: TimeOfDay[] = ['day', 'night'];
+
+export const crimeList: Crime[] = [];
 
 for (let i = 0; i < 100; i++) {
-    const crimen: Crimen = {
-        agno: getRandomElement(agnos),
-        tipo: getRandomElement(tipos),
-        temporada: getRandomElement(temporadas),
-        denunciado: Math.random() < 0.5,
+    const crime: Crime = {
+        year: getRandomElement(years),
+        type: getRandomElement(types),
+        time: getRandomElement(times),
+        reported: Math.random() < 0.5,
     };
 
-    listaCrimenes.push(crimen);
+    crimeList.push(crime);
 }
+

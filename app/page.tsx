@@ -1,4 +1,4 @@
-import MyCityStats from "@/components/MyCityStats";
+import MyCityStats from "@/components/my-city-stats";
 import {redirect} from "next/navigation";
 
 export default function Home() {
