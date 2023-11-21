@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie';
 import fp from '@fingerprintjs/fingerprintjs';
-import { TOKEN_COOKIE_NAME } from './jwt';
+
+export const TOKEN_COOKIE_NAME = '__ronderos_asdu__';
 
 type HttpOptionsType = RequestInit | { headers: Record<string, any> };
 
@@ -36,6 +37,7 @@ export async function httpCall<
   options?: HttpOptionsType
 ): Promise<ApiReturn<ResponseType, ErrorType>> {
   try {
+    //@ts-ignore
     const fingerprintPromise = await fp.load({ monitoring: false });
     const fingerprint = await fingerprintPromise.get();
 
