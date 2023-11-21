@@ -1,3 +1,4 @@
+"use client"
 import Legend from "../legend";
 import Map from "../maps";
 import Sidebar from "../sidebar/sidebar";

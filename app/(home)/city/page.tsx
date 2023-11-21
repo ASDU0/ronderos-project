@@ -1,16 +1,13 @@
-"use client"
-
-import FooterCiudad from "@/components/city/footer-ciudad";
-import HeaderCiudad from "@/components/city/header-ciudad";
-import MainCiudad from "@/components/city/main-ciudad";
-
+import FooterCity from "@/components/city/footer-city";
+import HeaderCity from "@/components/city/header-city";
+import MainCity from "@/components/city/main-city";
 
 export default function Page() {
   return (
     <div>
-      <HeaderCiudad />
-      <MainCiudad />
-      <FooterCiudad />
+      <HeaderCity />
+      <MainCity />
+      <FooterCity />
     </div>
   )
 }
