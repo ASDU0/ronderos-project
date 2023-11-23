@@ -1,12 +1,14 @@
+
 import { useState, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 interface SearchBoxProps {
     map: mapboxgl.Map | null;
-    setUbicacion: (ubicacion: [number, number]) => void;
+    setLocation: (location: { name: string; coordinates: [number, number] }) => void;
 }
 
-const Buscador: React.FC<SearchBoxProps> = ({ map, setUbicacion }) => {
+
+function SearchBox({ setLocation: setUbicacion }: SearchBoxProps) {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<any[]>([]);
 
@@ -20,13 +22,23 @@ const Buscador: React.FC<SearchBoxProps> = ({ map, setUbicacion }) => {
         }
     }, [query]);
 
-    const handleSelect = (place: any) => {
+    const handleSearch = (result: { place_name: string; center: [number, number] }) => {
+        setUbicacion({
+          name: result.place_name,
+          coordinates: result.center,
+        });
+      };
+
+      const handleSelect = (place: any) => {
         setQuery(place.place_name);
         setResults([]);
-        setUbicacion(place.center as [number, number]);
-        //console.log("direcciona::: ",place.center);
-        
+        setUbicacion({
+            name: place.place_name,
+            coordinates: place.center as [number, number],
+        });
+        //console.log("direcciona::: ", place.center);
     };
+    
 
     return (
         <div className="absolute top-0 left-0 m-4">
@@ -54,4 +66,5 @@ const Buscador: React.FC<SearchBoxProps> = ({ map, setUbicacion }) => {
     );
 };
 
-export default Buscador;
+export default SearchBox;
+
