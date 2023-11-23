@@ -181,57 +181,57 @@ const StatisticsCard = () => {
                 <Separator />
 
                 <div className="flex mt-6 px-4 py-6">
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
-                    <div className="w-1/6 flex flex-col items-center justify-center">
+                    <div className="w-1/6 flex flex-col items-center justify-center p-3">
                         <PiePercentageChart crimeList={crimeList} />
-                        <p className="text-lg text-gray-200 font-mono ">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono ">
                             2.339
                         </p>
-                        <p className="text-lg text-gray-200 font-mono">
+                        <p className="text-xs md:text-lg text-gray-200 font-mono">
                             Marcas
                         </p>
                     </div>
@@ -243,7 +243,7 @@ const StatisticsCard = () => {
                     RANKING DE BARRIOS
                 </p>
                <div className="p-10">
-                   <div className="rounded-lg border-2 border-gray-200 flex items-center justify-around py-6 px-2">
+                   <div className="rounded-lg border-2 border-gray-200 flex flex-col lg:flex-row gap-y-10 items-center justify-around py-6 px-2">
                        <p className="text-xl text-gray-300">
                            1. Barrio Uno
                        </p>

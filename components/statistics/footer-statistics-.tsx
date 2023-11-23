@@ -1,6 +1,6 @@
 const FooterStatistics = () => {
     return (
-        <div className="bg-red-600 py-11 flex items-center justify-around">
+        <div className="bg-red-600 py-11 flex flex-col gap-y-6 lg:flex-row items-center justify-around">
             <p className="text-gray-200 font-bold text-5xl">
                 RONDERO.PE
             </p>
