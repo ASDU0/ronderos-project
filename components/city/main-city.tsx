@@ -1,8 +1,9 @@
-import Legend from "../Legend";
-import Map from "../Maps";
+"use client"
+import Legend from "../legend";
+import Map from "../maps";
 import Sidebar from "../sidebar/sidebar";
 
-const MainCiudad = () => {
+const MainCity = () => {
   return ( 
     <div className="flex">
       <div className="hidden md:flex flex-col w-[280px]">
@@ -16,4 +17,4 @@ const MainCiudad = () => {
    );
 }
  
-export default MainCiudad;
+export default MainCity;

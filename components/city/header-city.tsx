@@ -1,6 +1,6 @@
 import SidebarMobile from "../sidebar/sidebar-mobile";
 
-const HeaderCiudad = () => {
+const HeaderCity = () => {
   return ( 
     <div className="flex md:hidden">
       <SidebarMobile />
@@ -8,4 +8,4 @@ const HeaderCiudad = () => {
    );
 }
  
-export default HeaderCiudad;
+export default HeaderCity;

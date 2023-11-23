@@ -8,7 +8,7 @@ const containerStyle = {
   height: '500px',
 };
 
-const center = {
+const mapCenter = {
   "lat": -12.046374,
   "lng": -77.042793
 };
@@ -107,11 +107,12 @@ export default function Map() {
 
     loader.importLibrary('maps').then(() => {
       const map = new google.maps.Map(mapRef.current!, {
-        center,
+        center: {
+          lat: mapCenter.lat,
+          lng: mapCenter.lng,
+        },
         zoom: 8
       });
-
-      // podemos agregar marcadores, poligonos, etc
 
       const markers = citiesCoors.map(
         (city) => {

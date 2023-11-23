@@ -1,5 +1,6 @@
+import MyCityStats from "@/components/my-city-stats";
 import {redirect} from "next/navigation";
 
 export default function Home() {
-  redirect("/ciudad")
+  return <MyCityStats cityName="LIMA" />
 }
