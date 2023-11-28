@@ -1,0 +1,68 @@
+{
+  "noticias": [
+    {
+      "fecha": "2023-11-10",
+      "titulo": "Nuevas estrategias de seguridad para combatir la delincuencia",
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png",
+      "puntuacionPromedio": 4.5,
+      "contenido": "Se implementan nuevas estrategias de seguridad en el Perú para combatir la creciente delincuencia. Estas medidas buscan fortalecer la seguridad ciudadana y garantizar un entorno más seguro para la población.",
+      "enlace": "https://larepublica.pe/sociedad/2023/11/27/arequipa-indice-de-delincuencia-se-redujo-en-un-50-segun-pnp-ix-region-policial-ghino-malaspina-lrsd-1465263"
+    },
+    {
+      "fecha": "2023-11-09",
+      "titulo": "Tecnología de vigilancia para enfrentar los desafíos de seguridad",
+      "imagen": "https://files.pucp.education/puntoedu/wp-content/uploads/2022/10/21182826/seguridad-ciudadana-1920x1080-01-abre-andina.jpg",
+      "puntuacionPromedio": 4.2,
+      "contenido": "Se introduce una avanzada tecnología de vigilancia para hacer frente a los desafíos de seguridad en el país. Esta innovación promete mejorar la capacidad de monitoreo y respuesta ante incidentes de seguridad.",
+      "enlace": "https://larepublica.pe/sociedad/2023/11/27/cierran-ingreso-a-montana-de-siete-colores-tras-peleas-en-cusco-chillihuani-vinicunca-lrsd-2377269"
+    },
+    {
+      "fecha": "2023-11-08",
+      "titulo": "Coordinación internacional contra el crimen organizado",
+      "imagen": "https://www.comexperu.org.pe/upload/images/act-1-061120-061401.jpg",
+      "puntuacionPromedio": 3.8,
+      "contenido": "Líderes de seguridad de diversos países se reúnen para fortalecer la coordinación internacional contra el crimen organizado. Se busca desarrollar estrategias conjuntas para abordar los desafíos transnacionales y garantizar la seguridad regional.",
+      "enlace": "https://larepublica.pe/politica/2023/11/26/carmen-mc-evoy-el-estado-se-maneja-como-una-chacra-privada-es-el-toma-y-daca-de-siempre-el-nino-recesion-pedro-castillo-dina-boluarte-1657630"
+    },
+    {
+      "fecha": "2023-11-07",
+      "titulo": "Innovaciones en ciberseguridad para proteger la información",
+      "imagen": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2016/07/25/000367052W.jpg",
+      "puntuacionPromedio": 4.0,
+      "contenido": "Se presentan nuevas innovaciones en ciberseguridad destinadas a proteger la información vital contra amenazas digitales. Estas medidas buscan fortalecer la seguridad en línea y prevenir ataques cibernéticos.",
+      "enlace": "https://larepublica.pe/politica/2023/11/27/rafael-vela-se-esta-conspirando-directamente-contra-la-independencia-de-las-fiscalias-y-del-poder-judicial-autoridad-nacional-de-control-ministerio-publico-1923428"
+    },
+    {
+      "fecha": "2023-11-06",
+      "titulo": "Entrenamiento especializado para fuerzas de seguridad",
+      "imagen": "https://elperuano.pe/fotografia/thumbnail/2022/07/04/000186004M.jpg",
+      "puntuacionPromedio": 4.1,
+      "contenido": "Se inicia un programa de entrenamiento especializado para las fuerzas de seguridad con el objetivo de mejorar sus habilidades y capacidades. Esta iniciativa busca garantizar una respuesta efectiva ante situaciones de emergencia.",
+      "enlace": "https://larepublica.pe/deportes/2023/11/26/paolo-guerrero-contra-los-que-piden-su-retiro-en-mi-pais-hay-gente-que-me-falta-el-respeto-seleccion-peruana-ldu-quito-798564"
+    },
+    {
+      "fecha": "2023-11-05",
+      "titulo": "Despliegue de patrullaje aéreo para combatir la delincuencia",
+      "imagen": "https://howtoperu.com/wp-content/uploads/2010/12/ronderos_peru.jpg",
+      "puntuacionPromedio": 3.7,
+      "contenido": "Se anuncia el despliegue de patrullaje aéreo como medida estratégica para combatir la delincuencia desde el aire. Esta nueva modalidad busca incrementar la vigilancia y reducir los índices delictivos.",
+      "enlace": "https://larepublica.pe/deportes/2023/11/27/seleccion-peruana-fpf-se-habria-reunido-con-jose-nestor-pekerman-para-que-sea-el-nuevo-entrenador-de-la-bicolor-1163700"
+    },
+    {
+      "fecha": "2023-11-04",
+      "titulo": "Colaboración ciudadana en programas de seguridad comunitaria",
+      "imagen": "https://cdn.www.gob.pe/uploads/document/file/2276770/standard_MPT%20SOLUCIONA%20ABASTECIMIENTO%20DE%20PATRULLEROS%20DE%20SEGURIDAD%20CIUDADANA.jpeg",
+      "puntuacionPromedio": 3.9,
+      "contenido": "Se promueve la colaboración ciudadana en programas de seguridad comunitaria, fomentando la participación activa de la comunidad en la prevención del delito. Esta iniciativa busca fortalecer los lazos entre la policía y la sociedad.",
+      "enlace": "https://larepublica.pe/mundo/2023/11/26/el-pais-de-sudamerica-que-tiene-mejor-internet-que-estados-unidos-y-china-y-es-tercero-del-mundo-wifi-2107924"
+    },
+    {
+      "fecha": "2023-11-03",
+      "titulo": "Implementación de cámaras de reconocimiento facial en lugares estratégicos",
+      "imagen": "https://diariocorreo.pe/resizer/PQkBlUZGN1V2W_0jU1ehPSBZS2k=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/XQC4YL5EOFBQXNRDYPXMO46CAQ.jpg",
+      "puntuacionPromedio": 4.3,
+      "contenido": "Se anuncia la implementación de cámaras de reconocimiento facial en lugares estratégicos como medida de seguridad. Esta tecnología busca identificar y prevenir la presencia de personas involucradas en actividades delictivas.",
+      "enlace": "https://larepublica.pe/mundo/2023/11/26/el-pais-de-sudamerica-que-tiene-mejor-internet-que-estados-unidos-y-china-y-es-tercero-del-mundo-wifi-2107924"
+    }
+  ]
+}
