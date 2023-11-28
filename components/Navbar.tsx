@@ -44,7 +44,7 @@ const Navbar = () => {
             <Link href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Entrar
             </Link>
-            <Link href="/nuevo-crimen" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
+            <Link href="/new-cryme" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
               Registrar Crimen
             </Link>
             <Link href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-neutral-500 hover:text-black mr-8">
