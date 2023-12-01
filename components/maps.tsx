@@ -1,7 +1,9 @@
 "use client";
 
-import { Loader } from "@googlemaps/js-api-loader"
+import { googleMapsLoader } from "@/config/google-maps-config";
 import { useEffect, useRef } from 'react';
+import { useRouter } from "next/navigation"
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const containerStyle = {
   width: '100%',
@@ -97,13 +99,12 @@ const citiesCoors = [
 ]
 
 export default function Map() {
-  const mapRef = useRef(null)
+  const mapRef = useRef(null);
+
+  const router = useRouter();
 
   useEffect(() => {
-    const loader = new Loader({
-      apiKey: '',
-      version: 'weekly',
-    });
+    const loader = googleMapsLoader();
 
     loader.importLibrary('maps').then(() => {
       const map = new google.maps.Map(mapRef.current!, {
@@ -116,9 +117,11 @@ export default function Map() {
 
       const markers = citiesCoors.map(
         (city) => {
-          const marker = createMarker(city, map);
-          // Crear un contenedor para la etiqueta del marcador
-          labelForMarker(city, map, marker);
+          const crimeMarker = createMarker(city, map);
+          
+          const crimeInfo = labelForMarker(city, router);
+          
+          crimeMarker.addListener('mouseover', () => crimeInfo.open(map, crimeMarker));
         }
       );
     });
@@ -129,26 +132,11 @@ export default function Map() {
   ></div>
 }
 
-function labelForMarker(
-  city: { city: string; position: { lat: number; lng: number; }; type: string; },
-  map: google.maps.Map,
-  marker: google.maps.Marker
-) {
-  const label = document.createElement('div');
-  label.className = 'marker-label';
-  label.textContent = `${city.type}`.toUpperCase();
-
-  // Vincular la etiqueta al marcador
-  const infoWindow = new google.maps.InfoWindow();
-  infoWindow.setContent(label);
-  infoWindow.open(map, marker);
-}
-
 function createMarker(
   city: { city: string; position: { lat: number; lng: number; }; type: string; },
   map: google.maps.Map
 ) {
-  return new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: city.position,
     map,
     title: city.city,
@@ -157,6 +145,42 @@ function createMarker(
       scaledSize: new google.maps.Size(30, 30),
       fillColor: 'red',
     },
+    clickable: true,
+    
   });
+  return marker;
+}
+
+function labelForMarker(
+  city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  router: AppRouterInstance
+) {
+  const containerInfo = generateInfoContent(city, router);
+
+  const crimeInfo = new google.maps.InfoWindow();
+  crimeInfo.setContent(containerInfo);
+  return crimeInfo;
+}
+
+function generateInfoContent(
+  city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  router: AppRouterInstance
+) {
+  const containerInfo = document.createElement('div');
+  containerInfo.style.display = 'flex';
+  containerInfo.style.padding = '5px';
+  containerInfo.style.flexDirection = 'flex-column';
+  containerInfo.style.gap = '12px';
+  containerInfo.style.alignItems = 'center';
+  const infoLabel = document.createElement('p');
+  infoLabel.textContent = `${city.city.toUpperCase()}`;
+  const moreInfoIcon = document.createElement('img');
+  moreInfoIcon.setAttribute('src', '/more-information.png');
+  moreInfoIcon.setAttribute('width', '20px');
+  moreInfoIcon.setAttribute('height', '20px');
+  moreInfoIcon.style.cursor = 'pointer';
+  moreInfoIcon.addEventListener('click', () => router.push(`/city/${city.city}`));
+  containerInfo.append(infoLabel, moreInfoIcon);
+  return containerInfo;
 }
 
