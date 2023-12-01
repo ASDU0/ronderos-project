@@ -2,6 +2,8 @@
 
 import { googleMapsLoader } from "@/config/google-maps-config";
 import { useEffect, useRef } from 'react';
+import { useRouter } from "next/navigation"
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const containerStyle = {
   width: '100%',
@@ -97,7 +99,9 @@ const citiesCoors = [
 ]
 
 export default function Map() {
-  const mapRef = useRef(null)
+  const mapRef = useRef(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     const loader = googleMapsLoader();
@@ -115,7 +119,7 @@ export default function Map() {
         (city) => {
           const crimeMarker = createMarker(city, map);
           
-          const crimeInfo = labelForMarker(city);
+          const crimeInfo = labelForMarker(city, router);
           
           crimeMarker.addListener('mouseover', () => crimeInfo.open(map, crimeMarker));
         }
@@ -149,15 +153,19 @@ function createMarker(
 
 function labelForMarker(
   city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  router: AppRouterInstance
 ) {
-  const containerInfo = generateInfoContent(city);
+  const containerInfo = generateInfoContent(city, router);
 
   const crimeInfo = new google.maps.InfoWindow();
   crimeInfo.setContent(containerInfo);
   return crimeInfo;
 }
 
-function generateInfoContent(city: { city: string; position: { lat: number; lng: number; }; type: string; }) {
+function generateInfoContent(
+  city: { city: string; position: { lat: number; lng: number; }; type: string; },
+  router: AppRouterInstance
+) {
   const containerInfo = document.createElement('div');
   containerInfo.style.display = 'flex';
   containerInfo.style.padding = '5px';
@@ -171,34 +179,8 @@ function generateInfoContent(city: { city: string; position: { lat: number; lng:
   moreInfoIcon.setAttribute('width', '20px');
   moreInfoIcon.setAttribute('height', '20px');
   moreInfoIcon.style.cursor = 'pointer';
-  moreInfoIcon.addEventListener('click', () => console.log('Navegar a la siguiente pagina'));
+  moreInfoIcon.addEventListener('click', () => router.push(`/city/${city.city}`));
   containerInfo.append(infoLabel, moreInfoIcon);
   return containerInfo;
-}
-
-function addHoverEffectoToMarkerLabel(
-  city: { city: string; position: { lat: number; lng: number; }; type: string; },
-  map: google.maps.Map,
-  marker: google.maps.Marker
-) {
-  const label = document.createElement('div');
-  label.className = 'marker-label';
-  label.textContent = `${city.type}`.toUpperCase();
-
-  label.addEventListener('mouseover', () => {
-    const infoWindow = new google.maps.InfoWindow({
-      content: `Ciudad: ${city.city}<br>Type: ${city.type}`,
-    });
-    infoWindow.open(map, marker);
-  });
-
-  label.addEventListener('mouseout', () => {
-    const infoWindow = new google.maps.InfoWindow();
-    infoWindow.close();
-  });
-
-  const infoWindow = new google.maps.InfoWindow();
-  infoWindow.setContent(label);
-  infoWindow.open(map, marker);
 }
 
