@@ -28,9 +28,10 @@ interface CrimeCount {
     };
 }
 
+//@ts-ignore
 export function BarChart({ crimeList }) {
     const options = createOptionsChart('Crecimiento por meses');
-
+    //@ts-ignore
     const count: CrimeCount = crimeList.reduce((accumulator, crime) => {
         const { year, time } = crime;
 

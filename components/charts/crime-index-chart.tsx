@@ -36,6 +36,7 @@ export const CrimeIndexChart = () => {
     }
 
     const options = createOptionsChart('LIMA');
+    //@ts-ignore
     options.scales = scales;
 
 

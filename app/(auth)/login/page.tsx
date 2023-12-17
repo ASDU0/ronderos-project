@@ -2,6 +2,11 @@
 import React, { useState } from 'react';
 import {signIn, useSession} from "next-auth/react";
 
+type LoginButtonType = {
+    provider: string;
+    icon: string;
+    color: string;
+    };
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +18,7 @@ export default function LoginForm() {
     // Puedes acceder a los valores de email, password y rememberMe para enviar la solicitud.
   };
 
-  const LoginComponentButton=({provider,icon,color})=>{
+  const LoginComponentButton=({provider,icon,color}: LoginButtonType)=>{
     const [isProviderLoading, setProviderLoading] = useState(false)
     const { data: session } = useSession()
 
