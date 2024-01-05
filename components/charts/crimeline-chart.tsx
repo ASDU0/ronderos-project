@@ -30,9 +30,11 @@ interface CrimeCount {
     };
 }
 
+//@ts-ignore
 export function CrimeLineChart({ crimeList }) {
     const options = createOptionsChart('Día vs Noche');
 
+    //@ts-ignore
     const count: CrimeCount = crimeList.reduce((accumulator, crime) => {
         const { year, season } = crime;
 

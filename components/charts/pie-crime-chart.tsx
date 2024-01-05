@@ -6,10 +6,12 @@ import { createOptionsChart } from './utils';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+//@ts-ignore
 export function PieCrimeChart({ crimeList }) {
     const options = createOptionsChart('Tipos de crimen');
 
     // count by crime type
+    //@ts-ignore
     const count = crimeList.reduce((accumulator, crime) => {
         const crimeType = crime.type;
 

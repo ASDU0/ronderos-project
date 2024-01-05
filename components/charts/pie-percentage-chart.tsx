@@ -22,9 +22,11 @@ export const data = (reportPercentage = 25) => {
     };
 };
 
+// @ts-ignore
 export function PiePercentageChart({ crimeList }) {
     const options = createOptionsChart('Porcentaje de crímenes reportados');
 
+    // @ts-ignore
     const count = crimeList.reduce((accumulator, crime) => {
         crime.reported ? accumulator.reported++ : accumulator.notReported++;
         return accumulator;
